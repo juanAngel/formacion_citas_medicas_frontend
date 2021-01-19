@@ -1,0 +1,57 @@
+<mat-card class="patient-card">
+    <mat-card-header>
+        <div mat-card-avatar class="avatar-image"></div>
+        <mat-card-title>{{patient.nombre}} {{patient.apellidos}}</mat-card-title>
+        <mat-card-subtitle>@{{patient.usuario}} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-grid-list cols="2">
+            <mat-grid-tile>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Numero Seguridad Social
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Numero tarjeta
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Telefono
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        Direccion
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        {{patient.NSS}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        {{patient.numTarjeta}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        {{patient.telefono}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        {{patient.direccion}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Citas</button>
+    <button mat-button>Doctores</button>
+  </mat-card-actions>
+</mat-card>

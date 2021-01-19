@@ -1,0 +1,19 @@
+<div class="app-container">
+    <button mat-icon-button mat-raised-button (click)="drawer.toggle()">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+    <mat-drawer-container [hasBackdrop]="true">
+        <mat-drawer #drawer [mode]="mode">
+            <mat-list>
+                <mat-list-item *ngFor="let it of sidebarMenu">
+                    <a mat-list-item routerLink="{{it.routeLink}}" routerLinkActive="active">{{it.title}}</a>
+                    <mat-divider></mat-divider>
+                </mat-list-item>
+            </mat-list>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>
