@@ -5,13 +5,15 @@ import { DoctorComponent } from "./doctor/doctor.component"
 import { PatientComponent } from "./patient/patient.component"
 import { RegisterDoctorComponent } from "./register-doctor/register-doctor.component"
 import { RegisterPatientComponent } from "./register-patient/register-patient.component"
-import { DocktorSearchComponent } from "./docktor-search/docktor-search.component"
+import { DoctorSearchComponent } from "./doctor-search/doctor-search.component"
 import { PatientSearchComponent } from "./patient-search/patient-search.component"
 import { MedicalAppointmentComponent } from "./medical-appointment/medical-appointment.component"
 
 const routes: Routes = [
-  { path: 'doctor-search/:name?', component: DocktorSearchComponent },
-  { path: 'patient-search/:name?', component: PatientSearchComponent },
+  { path: 'doctor-search', component: DoctorSearchComponent },
+  { path: 'patient-search', component: PatientSearchComponent },
+  { path: 'doctor-search/:name', component: DoctorSearchComponent },
+  { path: 'patient-search/:name', component: PatientSearchComponent },
   {
     path: 'doctor/:id',
     component: DoctorComponent,

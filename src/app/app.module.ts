@@ -4,12 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {DoctorService} from "./doctor.service"
+import {PatientService} from "./patient.service"
+import {MedicalAppointmentService} from "./medical-appointment.service"
+
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
 import { RegisterPatientComponent } from './register-patient/register-patient.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { PatientComponent } from './patient/patient.component';
-import { DocktorSearchComponent } from './docktor-search/docktor-search.component';
+import { DoctorSearchComponent } from './doctor-search/doctor-search.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { PatientSearchComponent } from './patient-search/patient-search.component'; 
@@ -43,7 +48,7 @@ import { MedicalAppointmentComponent } from './medical-appointment/medical-appoi
     RegisterPatientComponent,
     DoctorComponent,
     PatientComponent,
-    DocktorSearchComponent,
+    DoctorSearchComponent,
     LoginComponent,
     HomeComponent,
     PatientSearchComponent,
@@ -72,7 +77,11 @@ import { MedicalAppointmentComponent } from './medical-appointment/medical-appoi
     MatSelectModule,
     MatGridListModule,
   ],
-  providers: [],
+  providers: [
+    DoctorService,
+    PatientService,
+    MedicalAppointmentService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

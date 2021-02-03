@@ -15,11 +15,12 @@ const ELEMENT_DATA: Doctor[] = [
 ];*/
 
 @Component({
-  selector: 'app-docktor-search',
-  templateUrl: './docktor-search.component.html',
-  styleUrls: ['./docktor-search.component.sass']
+  selector: 'app-doctor-search',
+  templateUrl: './doctor-search.component.html',
+  styleUrls: ['./doctor-search.component.sass'],
+  providers:[DoctorService]
 })
-export class DocktorSearchComponent implements OnInit {
+export class DoctorSearchComponent implements OnInit {
   displayedColumns: string[] = [ 'name', 'lastName', 'numColegiado'];
   dataSource:Doctor[];
 
