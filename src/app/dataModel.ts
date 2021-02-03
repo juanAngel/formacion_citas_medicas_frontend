@@ -4,12 +4,14 @@ export interface User{
     nombre: string;
     apellidos: string;
     usuario: string;
-    clave: string;
+    clave?: string;
 }
 
 
 export interface Doctor extends User{
     numColegiado: string;
+    pacientes:Patient[]|number[];
+    citas:MedicalAppointment[]|number[];
 }
 
 export interface Patient extends User{
@@ -17,12 +19,15 @@ export interface Patient extends User{
     numTarjeta: string;
     telefono: string;
     direccion: string;
+    medicos:Doctor[]|number[];
+    citas:MedicalAppointment[]|number[];
 }
 export interface MedicalAppointment{
     id:number;
-    medicoId: number;
-    pacienteId: number;
-    fechaHora: Date;
+    paciente: number|Patient;
+    medico: number|Doctor;
+    diagnostico: number|Diagnostic;
+    fechaHora: number;
     motivoCita: string;
     attibute11: string;
 }
@@ -31,26 +36,15 @@ export interface Diagnostic{
 	id:number;
     valoracionEspecialista: string;
     enfermedad: string;
+    cita:MedicalAppointment|number;
 }
-
+/*
 export abstract class FormacionApi{
     constructor(){
     }
-    /**
-     * getDoctor
-     */
     public abstract getDoctor(id:number):Doctor;
-    /**
-     * getDoctorByName
-     */
     public abstract getDoctorByName(name:string):Doctor[];
-    /**
-     * getDoctor
-     */
     public abstract getPatient(id:number):Patient;
-    /**
-     * getDoctorByName
-     */
     public abstract getPatientByName(name:string):Patient[];
 
 
@@ -111,16 +105,10 @@ export class FormacionApiMock extends FormacionApi{
     public static getInstance():FormacionApiMock{
         return new FormacionApiMock();
     }
-    /**
-     * getDoctor
-     */
     public getDoctor(id:number):Doctor {
         return this.doctors[id];
     }
-    /**
-     * getDoctor
-     */
     public getPatient(id:number):Patient {
         return this.patients[id];
     }
-}
+}*/

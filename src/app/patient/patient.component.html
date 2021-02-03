@@ -1,4 +1,4 @@
-<mat-card class="patient-card">
+<mat-card *ngIf="patient!=null" class="patient-card">
     <mat-card-header>
         <div mat-card-avatar class="avatar-image"></div>
         <mat-card-title>{{patient.nombre}} {{patient.apellidos}}</mat-card-title>

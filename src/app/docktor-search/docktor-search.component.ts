@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Doctor,FormacionApi} from "../dataModel"
+import {Doctor} from "../dataModel"
+import {DoctorService} from "../doctor.service"
+import {PatientService} from "../patient.service"
 
 export interface PeriodicElement {
   name: string;
   weight: number;
   symbol: string;
 }
-
+/*
 const ELEMENT_DATA: Doctor[] = [
   {id:0,nombre:"pepe",apellidos:"Perez Sanchez",usuario:"",clave:"",numColegiado:"z00000"}
-];
+];*/
 
 @Component({
   selector: 'app-docktor-search',
@@ -21,13 +23,13 @@ export class DocktorSearchComponent implements OnInit {
   displayedColumns: string[] = [ 'name', 'lastName', 'numColegiado'];
   dataSource:Doctor[];
 
-  constructor() { }
+  constructor(private doctorService:DoctorService) { }
 
   ngOnInit(): void {
     this.dataSource = []
   }
-  searchDoctor(name:string){
-    this.dataSource = FormacionApi.getInstance().getDoctorByName(name);
+  async searchDoctor(name:string){
+    this.dataSource = await this.doctorService.findByNombre(name);
   }
 
 }

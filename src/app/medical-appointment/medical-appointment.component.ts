@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  , ActivatedRoute } from '@angular/router';
-import {MedicalAppointment,FormacionApi} from "../dataModel"
+import {MedicalAppointment} from "../dataModel"
 
 @Component({
   selector: 'app-medical-appointment',
@@ -11,7 +11,6 @@ export class MedicalAppointmentComponent implements OnInit {
 
   public displayedColumns:string[];
   public dataSource:MedicalAppointment[];
-  private api = FormacionApi.getInstance();
 
   constructor(private route: ActivatedRoute) { }
 

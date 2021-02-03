@@ -1,7 +1,8 @@
 <!--Pacientes-->
 <!--Citas-->
 
-<mat-card class="doctor-card">
+
+<mat-card *ngIf="doctor!=null" class="doctor-card">
     <mat-card-header>
         <div mat-card-avatar class="avatar-image"></div>
         <mat-card-title>{{doctor.nombre}} {{doctor.apellidos}}</mat-card-title>

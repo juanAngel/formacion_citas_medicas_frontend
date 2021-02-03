@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router  , ActivatedRoute } from '@angular/router';
 
-import {Patient,FormacionApi} from "../dataModel"
+import {Patient} from "../dataModel"
+import {DoctorService} from "../doctor.service"
+import {PatientService} from "../patient.service"
 
 @Component({
   selector: 'app-patient',
@@ -10,11 +12,14 @@ import {Patient,FormacionApi} from "../dataModel"
 })
 export class PatientComponent implements OnInit {
   public patient:Patient;
-  private api = FormacionApi.getInstance();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,private patientService:PatientService) { }
 
   ngOnInit(): void {
-    this.patient = this.api.getPatient(this.route.snapshot.params["id"]);
+
+    (async () => {
+      this.patient = await this.patientService.getOne(this.route.snapshot.params["id"]);
+    })()
+    
   }
 }

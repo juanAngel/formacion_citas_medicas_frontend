@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Patient,FormacionApi} from "../dataModel"
+import {Patient} from "../dataModel"
+import {DoctorService} from "../doctor.service"
+import {PatientService} from "../patient.service"
 
 @Component({
   selector: 'app-patient-search',
@@ -11,13 +13,13 @@ export class PatientSearchComponent implements OnInit {
   displayedColumns: string[] = [ 'name', 'lastName','NSS'];
   dataSource:Patient[];
 
-  constructor() { }
+  constructor(private patientService:PatientService) { }
 
   ngOnInit(): void {
     this.dataSource = []
   }
-  searchPatient(name:string){
-    this.dataSource = FormacionApi.getInstance().getPatientByName(name);
+  async searchPatient(name:string){
+    this.dataSource = await this.patientService.findByNombre(name);
   }
 
 }
