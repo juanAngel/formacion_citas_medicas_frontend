@@ -30,7 +30,10 @@ export class DoctorSearchComponent implements OnInit {
     this.dataSource = []
   }
   async searchDoctor(name:string){
-    this.dataSource = await this.doctorService.findByNombre(name);
+    this.dataSource =  (name != "")?
+      await this.doctorService.findByNombre(name)
+      :
+      await this.doctorService.getAll();
   }
 
 }

@@ -19,7 +19,16 @@ export class PatientSearchComponent implements OnInit {
     this.dataSource = []
   }
   async searchPatient(name:string){
-    this.dataSource = await this.patientService.findByNombre(name);
+    this.dataSource =  (name != "")?
+      await this.patientService.findByNombre(name)
+      :
+      await this.patientService.getAll();
+  }
+  async searchNSSPatient(NSS:string){
+    this.dataSource =  (NSS != "")?
+      await this.patientService.findByNSS(NSS)
+      :
+      await this.patientService.getAll();
   }
 
 }

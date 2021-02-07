@@ -1,0 +1,41 @@
+<mat-dialog-content (keydown.enter)="search()">
+    <mat-form-field>
+        <input matInput
+                placeholder="Nombre medico"
+                name="doctorName"
+                [(ngModel)]="doctorName">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput
+                placeholder="Numero colegiado"
+                name="numColegiado"
+                [(ngModel)]="numColegiado">
+    </mat-form-field>
+    <!-- Tabla de busqueda de pacientes-->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width: 100%">
+
+        <!-- Columna nombre -->
+        <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> nombre </th>
+        <td mat-cell *matCellDef="let it"> {{it.nombre}} </td>
+        </ng-container>
+        
+        <!-- Columna apellidos -->
+        <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+        <td mat-cell *matCellDef="let it"> {{it.apellidos}} </td>
+        </ng-container>
+        <!-- Columna NSS -->
+        <ng-container matColumnDef="numColegiado">
+        <th mat-header-cell *matHeaderCellDef> Numero colegiado </th>
+        <td mat-cell *matCellDef="let it"> {{it.numColegiado}} </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="doctor!=row?'':'row-selected'" (click)="doctor=row"></tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

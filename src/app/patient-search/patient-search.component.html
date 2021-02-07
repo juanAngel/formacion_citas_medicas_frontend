@@ -10,7 +10,7 @@
 <mat-form-field class="search-form">
     <mat-form-field class="search-bar">
         <mat-label>NSS paciente</mat-label>
-        <input matInput #nssSearch (keydown.enter)="searchPatient(nssSearch.value)" name="nss" placeholder="" value="">
+        <input matInput #nssSearch (keydown.enter)="searchNSSPatient(nssSearch.value)" name="nss" placeholder="" value="">
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 </mat-form-field>
@@ -18,23 +18,23 @@
 <!-- Tabla de busqueda de pacientes-->
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
-    <!-- Columna nombre -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> nombre </th>
-      <td mat-cell *matCellDef="let it"> {{it.nombre}} </td>
-    </ng-container>
-   
-    <!-- Columna apellidos -->
-    <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef> Apellidos </th>
-      <td mat-cell *matCellDef="let it"> {{it.apellidos}} </td>
-    </ng-container>
-    <!-- Columna NSS -->
-    <ng-container matColumnDef="NSS">
-      <th mat-header-cell *matHeaderCellDef> NSS </th>
-      <td mat-cell *matCellDef="let it"> {{it.NSS}} </td>
-    </ng-container>
-   
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/patient',row.id]"></tr>
-  </table>
+  <!-- Columna nombre -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> nombre </th>
+    <td mat-cell *matCellDef="let it"> {{it.nombre}} </td>
+  </ng-container>
+  
+  <!-- Columna apellidos -->
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+    <td mat-cell *matCellDef="let it"> {{it.apellidos}} </td>
+  </ng-container>
+  <!-- Columna NSS -->
+  <ng-container matColumnDef="NSS">
+    <th mat-header-cell *matHeaderCellDef> NSS </th>
+    <td mat-cell *matCellDef="let it"> {{it.NSS}} </td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/patient',row.id]"></tr>
+</table>

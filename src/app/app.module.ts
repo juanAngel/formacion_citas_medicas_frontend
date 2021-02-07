@@ -22,6 +22,9 @@ import { PatientSearchComponent } from './patient-search/patient-search.componen
 import { SidebarModule } from 'ng-sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatListModule} from '@angular/material/list'; 
 import {MatToolbarModule} from "@angular/material/toolbar";
@@ -38,7 +41,11 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from '@angular/material/grid-list';
-import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component'; 
+import {ReactiveFormsModule,FormsModule} from "@angular/forms"
+
+import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
+import { DoctorSearchDialogComponent } from './doctor-search-dialog/doctor-search-dialog.component';
+import { PatientSearchDialogComponent } from './patient-search-dialog/patient-search-dialog.component'; 
 
 
 @NgModule({
@@ -52,7 +59,9 @@ import { MedicalAppointmentComponent } from './medical-appointment/medical-appoi
     LoginComponent,
     HomeComponent,
     PatientSearchComponent,
-    MedicalAppointmentComponent
+    MedicalAppointmentComponent,
+    DoctorSearchDialogComponent,
+    PatientSearchDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +70,11 @@ import { MedicalAppointmentComponent } from './medical-appointment/medical-appoi
     NgbModule,
     SidebarModule.forRoot(),
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatDialogModule,
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,

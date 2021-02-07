@@ -31,11 +31,11 @@ export class PatientService {
     return this.http.delete(config.endpointRoot+this.endpoint+"/"+patient.id).toPromise();
   }
 
-  public async addDoctor(id: number) {
+  public async addDoctor(pacienteID: number,medicoID: number) {
     //this.http.get<Doctor>(config.endpointRoot+"/medico/"+id).toPromise();
   }
 
-  public async removeDoctor(id: number) {
+  public async removeDoctor(pacienteID: number,medicoID: number) {
     //this.http.get<Doctor>(config.endpointRoot+"/medico/"+id).toPromise();
   }
 

@@ -28,17 +28,22 @@ export class DoctorService {
   public async remove(doctor:Doctor){
     this.http.delete(config.endpointRoot+this.endpoint+"/"+doctor.id).toPromise();
   }
-  public async addPaciente(doctor:Doctor,paciente:Patient):Promise<Doctor>{
-    return this.http.post<Doctor>(config.endpointRoot+this.endpoint+"/paciente/"+doctor.id+"/",paciente.id+"/").toPromise();
+  public async addPaciente(doctor:Doctor|number,paciente:Patient|number):Promise<Doctor>{
+    let pacienteID:number = typeof paciente == "number"?paciente:paciente.id;
+    let medicoID: number = typeof doctor == "number"?doctor:doctor.id;
+    return this.http.post<Doctor>(config.endpointRoot+this.endpoint+"/paciente/"+medicoID+"/",pacienteID).toPromise();
   }
   public async removePaciente(doctor:Doctor,paciente:Patient){
-    this.http.delete(config.endpointRoot+this.endpoint+"/paciente/"+doctor.id+"/"+paciente.id+"/").toPromise();
+    let pacienteID:number = typeof paciente == "number"?paciente:paciente.id;
+    let medicoID: number = typeof doctor == "number"?doctor:doctor.id;
+
+    return this.http.delete<Doctor>(config.endpointRoot+this.endpoint+"/paciente/"+medicoID+"/"+pacienteID+"/").toPromise();
   }
   public async addCita(doctorId:number,pacienteId:number,cita:MedicalAppointment){
     return this.http.post<MedicalAppointment>(config.endpointRoot+this.endpoint+"/cita/"+doctorId+"/"+pacienteId,cita).toPromise();
   }
   public async removeCita(cita:MedicalAppointment){
-    this.http.delete(config.endpointRoot+this.endpoint+"/cita/"+cita.id).toPromise();
+    return this.http.delete<Doctor>(config.endpointRoot+this.endpoint+"/cita/"+cita.id).toPromise();
   }
   public async findByNombre(nombre:string){
     return this.http.get<Doctor[]>(config.endpointRoot+this.endpoint+"/nombre/"+nombre).toPromise();
