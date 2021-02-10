@@ -8,8 +8,11 @@ import { RegisterPatientComponent } from "./register-patient/register-patient.co
 import { DoctorSearchComponent } from "./doctor-search/doctor-search.component"
 import { PatientSearchComponent } from "./patient-search/patient-search.component"
 import { MedicalAppointmentComponent } from "./medical-appointment/medical-appointment.component"
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: "",component: HomeComponent, pathMatch: "full"},
+  { path: 'login', component: DoctorSearchComponent },
   { path: 'doctor-search', component: DoctorSearchComponent },
   { path: 'patient-search', component: PatientSearchComponent },
   { path: 'doctor-search/:name', component: DoctorSearchComponent },

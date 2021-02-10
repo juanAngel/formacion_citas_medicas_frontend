@@ -1,54 +1,47 @@
-<p>register-patient works!</p>
-
-
-<!--Nombre-->
-<div class="form-group">
-    <label class="control-label col-sm-2">Nombre:</label>
-    <div class="col-sm-10">
-        <input matInput class="form-control" placeholder="Nombre">
-    </div>
-</div>
-<!--Apellidos-->
-<div class="form-group">
-    <label class="control-label col-sm-2" >Apellidos:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Apellidos">
-    </div>
-</div>
-<!--Usuario-->
-<div class="form-group">
-    <label class="control-label col-sm-2" >Usuario:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Usuario">
-    </div>
-</div>
-<!--Clave-->
-<div class="form-group">
-    <label class="control-label col-sm-2">Contraseña:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Contraseña">
-    </div>
-</div>
-<!--NSSS-->
-<div class="form-group">
-    <label class="control-label col-sm-2">Numero Seguridad Social:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Numero Seguridad Social">
-    </div>
-</div>
-<!--Numero tarjeta-->
-<div class="form-group">
-    <label class="control-label col-sm-2">Numero tarjeta:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Numero tarjeta">
-    </div>
-</div>
-<!--Telefono-->
-<div class="form-group">
-    <label class="control-label col-sm-2">Telefono:</label>
-    <div class="col-sm-10">
-        <input class="form-control" placeholder="Telefono">
-    </div>
-</div>
-<!--Medico-->
-<!--Citas-->
+<mat-card>
+    <mat-card-content>
+        <p>
+            <!--Nombre-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Nombre" [(ngModel)]="name">
+            </mat-form-field>
+            <!--Apellidos-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Apellidos" [(ngModel)]="lastName">
+            </mat-form-field>
+        </p>
+        <p>
+            <!--Usuario-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Usuario" [(ngModel)]="user">
+            </mat-form-field>
+            <!--Clave-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Contraseña" [(ngModel)]="password">
+            </mat-form-field>
+        </p>
+        <p>
+            <!--NSSS-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="NSS" [(ngModel)]="NSS">
+            </mat-form-field>
+            <!--Numero tarjeta-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Numero tarjeta" [(ngModel)]="numTarjeta">
+            </mat-form-field>
+        </p>
+        <p>
+            <!--Telefono-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Telefono" [(ngModel)]="telefono">
+            </mat-form-field>
+            <!--Direccion-->
+            <mat-form-field>
+                <input matInput class="form-control" placeholder="Direccion" [(ngModel)]="direccion">
+            </mat-form-field>
+        </p>
+        <p>
+            <button mat-button (click)="save()">Registrar paciente</button>
+        </p>
+    </mat-card-content>
+</mat-card>

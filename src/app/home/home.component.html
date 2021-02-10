@@ -1,1 +1,18 @@
-<p>home works!</p>
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput class="form-control" placeholder="Nombre Usuario" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput class="form-control" placeholder="Contraseña" [(ngModel)]="password">
+        </mat-form-field>
+        <p>
+            <button mat-button>Entrar doctor</button>
+            <button mat-button>Entrar paciente</button>
+        </p>
+        <p>
+            <button mat-button>Registrar doctor</button>
+            <button mat-button>Registrar paciente</button>
+        </p>
+    </mat-card-content>
+</mat-card>
