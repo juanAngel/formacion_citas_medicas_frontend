@@ -1,18 +1,18 @@
 <mat-card>
     <mat-card-content>
         <mat-form-field>
-            <input matInput class="form-control" placeholder="Nombre Usuario" [(ngModel)]="username">
+            <input matInput placeholder="Nombre Usuario" [(ngModel)]="username">
         </mat-form-field>
         <mat-form-field>
-            <input matInput class="form-control" placeholder="Contraseña" [(ngModel)]="password">
+            <input matInput type="password" placeholder="Contraseña" [(ngModel)]="password">
         </mat-form-field>
         <p>
-            <button mat-button>Entrar doctor</button>
-            <button mat-button>Entrar paciente</button>
+            <button mat-button (click)="loginDoctor()">Entrar doctor</button>
+            <button mat-button (click)="loginPatient()">Entrar paciente</button>
         </p>
         <p>
-            <button mat-button>Registrar doctor</button>
-            <button mat-button>Registrar paciente</button>
+            <button mat-button routerLink="/register-doctor">Registrar doctor</button>
+            <button mat-button routerLink="/register-patient">Registrar paciente</button>
         </p>
     </mat-card-content>
 </mat-card>
