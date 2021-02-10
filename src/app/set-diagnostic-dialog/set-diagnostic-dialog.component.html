@@ -1,0 +1,13 @@
+<p mat-dialog-title>Diagnostico</p>
+<mat-dialog-content>
+    <mat-form-field>
+        <input matInput placeholder="Valoracion Especialista" name="valoracionEspecialista" [(ngModel)]="valoracionEspecialista">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="enfermedad" name="enfermedad" [(ngModel)]="enfermedad">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+</mat-dialog-actions>

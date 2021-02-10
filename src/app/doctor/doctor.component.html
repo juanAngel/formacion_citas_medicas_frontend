@@ -67,6 +67,7 @@
         </table>
         <button mat-button (click)="addPatient()">Añadir pacientes</button>
         <button mat-button (click)="removePatient()">Eliminar pacientes</button>
+        <button mat-button (click)="addMedicalAppointment()">Agregar citas</button>
     </mat-expansion-panel>
 </mat-accordion>
 <mat-accordion *ngIf="doctor!=null" class="example-headers-align" multi>
@@ -85,7 +86,7 @@
             <!-- Name Column -->
             <ng-container matColumnDef="fechaHora">
                 <th mat-header-cell *matHeaderCellDef>Fecha </th>
-                <td mat-cell *matCellDef="let it"> {{it.fechaHora}} </td>
+                <td mat-cell *matCellDef="let it"> {{timestampToDate(it.fechaHora)}} </td>
             </ng-container>
 
             <!-- Weight Column -->
@@ -95,17 +96,16 @@
             </ng-container>
 
             <!-- Symbol Column -->
-            <ng-container matColumnDef="attibute11">
-                <th mat-header-cell *matHeaderCellDef> attibute11 </th>
-                <td mat-cell *matCellDef="let it"> {{it.attibute11}} </td>
+            <ng-container matColumnDef="patientName">
+                <th mat-header-cell *matHeaderCellDef> Nombre paciente</th>
+                <td mat-cell *matCellDef="let it"> {{getPatientName(it.paciente)}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="medicalAppointmentDisplayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: medicalAppointmentDisplayedColumns;" [ngClass]="selectedMedicalAppointment!=row?'':'row-selected'" (click)="selectedMedicalAppointment=row"></tr>
         </table>
-        <button mat-button (click)="addMedicalAppointment()">Agregar citas</button>
-        <button mat-button (click)="removeMedicalAppointment()">Eliminar citas</button>
         <button mat-button (click)="acceptMedicalAppointment()">Aceptar cita</button>
+        <button mat-button (click)="removeMedicalAppointment()">Eliminar citas</button>
         <button mat-button (click)="setDiagnostic()">Establecer diagnostico</button>
     </mat-expansion-panel>
 </mat-accordion>

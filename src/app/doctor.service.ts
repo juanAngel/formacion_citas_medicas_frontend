@@ -40,7 +40,7 @@ export class DoctorService {
     return this.http.delete<Doctor>(config.endpointRoot+this.endpoint+"/paciente/"+medicoID+"/"+pacienteID+"/").toPromise();
   }
   public async addCita(doctorId:number,pacienteId:number,cita:MedicalAppointment){
-    return this.http.post<MedicalAppointment>(config.endpointRoot+this.endpoint+"/cita/"+doctorId+"/"+pacienteId,cita).toPromise();
+    return this.http.post<MedicalAppointment>(config.endpointRoot+this.endpoint+"/cita/"+doctorId+"/"+pacienteId+"/",cita).toPromise();
   }
   public async removeCita(cita:MedicalAppointment){
     return this.http.delete<Doctor>(config.endpointRoot+this.endpoint+"/cita/"+cita.id).toPromise();

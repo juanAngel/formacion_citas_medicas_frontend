@@ -45,7 +45,11 @@ import {ReactiveFormsModule,FormsModule} from "@angular/forms"
 
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import { DoctorSearchDialogComponent } from './doctor-search-dialog/doctor-search-dialog.component';
-import { PatientSearchDialogComponent } from './patient-search-dialog/patient-search-dialog.component'; 
+import { PatientSearchDialogComponent } from './patient-search-dialog/patient-search-dialog.component';
+import { ReasonAppointmentDialogComponent } from './reason-appointment-dialog/reason-appointment-dialog.component';
+import { NewAppointmentDialogComponent } from './new-appointment-dialog/new-appointment-dialog.component';
+import { AcceptAppointmentDialogComponent } from './accept-appointment-dialog/accept-appointment-dialog.component';
+import { SetDiagnosticDialogComponent } from './set-diagnostic-dialog/set-diagnostic-dialog.component'; 
 
 
 @NgModule({
@@ -61,7 +65,11 @@ import { PatientSearchDialogComponent } from './patient-search-dialog/patient-se
     PatientSearchComponent,
     MedicalAppointmentComponent,
     DoctorSearchDialogComponent,
-    PatientSearchDialogComponent
+    PatientSearchDialogComponent,
+    ReasonAppointmentDialogComponent,
+    NewAppointmentDialogComponent,
+    AcceptAppointmentDialogComponent,
+    SetDiagnosticDialogComponent
   ],
   imports: [
     BrowserModule,

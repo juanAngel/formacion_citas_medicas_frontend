@@ -23,11 +23,9 @@ export class MedicalAppointmentService {
   public async getOne(id: number) {
     return this.http.get<MedicalAppointment>(config.endpointRoot + this.endpoint +"/" + id).toPromise();
   }
-/*
-  public async save(cita: MedicalAppointment) {
-    return this.http.post<MedicalAppointment>(config.endpointRoot+this.endpoint+"/",cita).toPromise();
-  }
-*/
+  public async updateDate(id:number,date:number) {
+    return this.http.post<MedicalAppointment>(config.endpointRoot+this.endpoint+"/update/"+id,date).toPromise();
+  }  
 
   public async remove(cita: MedicalAppointment) {
     return this.http.delete(config.endpointRoot+this.endpoint+"/"+cita.id).toPromise();
@@ -37,6 +35,6 @@ export class MedicalAppointmentService {
     return this.http.get<MedicalAppointment[]>(config.endpointRoot + this.endpoint +"/at/" + start.getTime()+"/"+end.getTime()).toPromise();
   }
   public async setDiagnostic(cita: MedicalAppointment, diagnostic:Diagnostic) {
-    return this.http.post<MedicalAppointment[]>(config.endpointRoot + this.endpoint +"/diagnostic/"+cita.id+"/", diagnostic).toPromise();
+    return this.http.post<MedicalAppointment>(config.endpointRoot + this.endpoint +"/diagnostic/"+cita.id+"/", diagnostic).toPromise();
   }
 }

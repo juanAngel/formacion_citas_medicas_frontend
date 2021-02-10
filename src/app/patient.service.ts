@@ -32,15 +32,18 @@ export class PatientService {
   }
 
   public async addDoctor(pacienteID: number,medicoID: number) {
-    //this.http.get<Doctor>(config.endpointRoot+"/medico/"+id).toPromise();
+    return this.http.post<Patient>(config.endpointRoot+this.endpoint+"/medico/"+pacienteID+"/",medicoID).toPromise();
   }
 
   public async removeDoctor(pacienteID: number,medicoID: number) {
-    //this.http.get<Doctor>(config.endpointRoot+"/medico/"+id).toPromise();
+    return this.http.delete<Patient>(config.endpointRoot+this.endpoint+"/medico/"+pacienteID+"/"+medicoID).toPromise();
   }
 
-  public async citaRequest(pacienteID: number,medicoID: number) {
-    return this.http.post<Patient>(config.endpointRoot+this.endpoint+"/citaRequest/"+pacienteID+"/"+medicoID+"/",null).toPromise();
+  public async citaRequest(pacienteID: number,medicoID: number,reason:string) {
+    return this.http.post<Patient>(config.endpointRoot+this.endpoint+"/requestCita/"+pacienteID+"/"+medicoID,reason).toPromise();
+  }
+  public async cancelCita(citaId:number) {
+    return this.http.delete<Patient>(config.endpointRoot+this.endpoint+"/requestCita/"+citaId).toPromise();
   }
 
   public async findByNombre(nombre:string){
